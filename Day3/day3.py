@@ -1,6 +1,7 @@
+import misc.Scanner as sc
 
-def calculate_trees(nbr_down, nbr_steps):
-    map = read_file("input.txt")
+def calculate_trees(nbr_steps, nbr_down):
+    map = sc.read_and_split_lines("input.txt")
     dict = {}
     key = 1
     nbr = nbr_steps
@@ -35,13 +36,10 @@ def calculate_trees(nbr_down, nbr_steps):
 
 
 
-def read_file(file_name):
-    file = open(file_name, "r") #opens the file in read mode
-    words = file.read().splitlines() #puts the file into an array
-    file.close()
-    return words
 
 if __name__ == "__main__":
-    nbr = calculate_trees(1, 1)
-    print(nbr)
-    print(94 * 214 * 99 * 91 * 46)
+    nbr_1 = calculate_trees(3, 1)
+    nbr_2 = (calculate_trees(1, 1) * calculate_trees(3, 1) * calculate_trees(5, 1) * calculate_trees(7, 1)
+           * calculate_trees(1, 2))
+
+    print("1. ", nbr_1, "\n2. ", nbr_2)

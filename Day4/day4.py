@@ -1,7 +1,9 @@
 import re
+import misc.Scanner as sc
+
 
 def valid_passports():
-    batch = read_file("input.txt")
+    batch = sc.read_and_split("input.txt", "\n\n")
     must_haves = ["byr", "iyr", "eyr",
                    "hgt", "hcl", "ecl", "pid"]
     nbr_valid_pass = 0
@@ -104,13 +106,6 @@ def invalid(key, value):
 
     return ret
 
-
-
-def read_file(file_name):
-    file = open(file_name, "r") #opens the file in read mode
-    words = file.read().split("\n\n") #puts the file into an array
-    file.close()
-    return words
 
 if __name__ == "__main__":
     nbr = valid_passports()

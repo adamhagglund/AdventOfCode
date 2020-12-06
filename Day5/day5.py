@@ -1,6 +1,7 @@
-
+import misc.Scanner as sc
 def highest_seat():
-    map = read_file("input.txt")
+
+    map = sc.read_and_split_lines("input.txt")
     rows = 127
     seats = 7
     dict = {}
@@ -20,8 +21,6 @@ def highest_seat():
             print(value)
 
 
-
-    #print(map)
     return max(id)
 
 
@@ -64,11 +63,7 @@ def find_missing_id(ids):
 
         latest = id
 
-def read_file(file_name):
-    file = open(file_name, "r") #opens the file in read mode
-    words = file.read().splitlines() #puts the file into an array
-    file.close()
-    return words
+
 
 if __name__ == "__main__":
     nbr = highest_seat()
